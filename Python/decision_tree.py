@@ -6,7 +6,7 @@ Return: none
 Output: an image of the decision tree
 Lessons learned:
     1) Creating Data trees in python
-    2) Interpreting data trees
+    2) Interpreting Python data trees
 """
 
 # source: https://www.w3schools.com/python/python_ml_decision_tree.asp

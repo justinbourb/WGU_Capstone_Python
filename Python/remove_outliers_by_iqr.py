@@ -17,7 +17,7 @@ import csv
 import pandas as pd
 
 if __name__ == "__main__":
-    path = "C:\\git_local\\WGU_Capstone\\Cleaned data"
+    path = "C:\\git_local\\WGU_Capstone_Python\\data"
     os.chdir(path)
     # read the data
     csv_data = pd.read_csv('working_data.csv')

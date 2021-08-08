@@ -47,7 +47,6 @@ def calculate_rules(df):
     # create frequent_items
     frequent_items = apriori(df, min_support=0.07, use_colnames=True)
     rules = association_rules(frequent_items, metric="lift", min_threshold=1)
-    pd.set_option('display.max_columns', None)
     print(rules.head())
     # ValueError: The allowed values for a DataFrame are True, False, 0, 1.
 
@@ -63,6 +62,9 @@ def one_hot_encoding(df):
           .groupby(['InvoiceNo', 'Description'])['Quantity']
           .sum().unstack().reset_index().fillna(0)
           .set_index('InvoiceNo'))
+
+
+    '''
     def encode_units(x):
         """
         Set anything less than 0 to 0, anything greater to 1
@@ -78,10 +80,15 @@ def one_hot_encoding(df):
     basket_sets = basket.applymap(encode_units)
     basket_sets.drop('POSTAGE', inplace=True, axis=1)
     return basket_sets
+    '''
+    return basket
 if __name__ == "__main__":
+    pd.set_option('display.max_columns', None)
     # load data
     # df = load_data('data\\cleaned_data_with_clusters.csv')
     df = load_data("data/test_data_mlxtend.csv")
     df = clean_data(df)
-    basket_sets = one_hot_encoding(df)
-    calculate_rules(basket_sets)
+    # loaded data and cleaned data have the same column format
+    #basket_sets = one_hot_encoding(df)
+    #calculate_rules(basket_sets)
+    #print(basket_sets)

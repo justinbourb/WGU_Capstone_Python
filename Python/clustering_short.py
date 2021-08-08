@@ -8,6 +8,7 @@ Lessons learned:
     2) Working with numpy, pandas and sklearn and how they interact
     3) The importance of standardizing data before clustering
         a) Large values skew clustering, all values should be similar (standardized) for best results
+    4) Plotting clusters
 """
 
 from sklearn.cluster import KMeans
