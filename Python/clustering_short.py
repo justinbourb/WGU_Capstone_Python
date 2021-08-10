@@ -10,6 +10,7 @@ Lessons learned:
         a) Large values skew clustering, all values should be similar (standardized) for best results
     4) Plotting clusters
 """
+import os
 
 from sklearn.cluster import KMeans
 from sklearn import preprocessing
@@ -135,8 +136,10 @@ def save_output_to_csv(kmeans):
 
 
 if __name__ == "__main__":
+    path = "C:\\git_local\\WGU_Capstone_Python\\data"
+    os.chdir(path)
     # data source
-    datafile = "data/iqr_cleaned_data.csv"
+    datafile = "iqr_cleaned_data.csv"
     # load the data
     X = convert_csv_to_numpy_array(datafile)
     standardized = standardized_data(X)
