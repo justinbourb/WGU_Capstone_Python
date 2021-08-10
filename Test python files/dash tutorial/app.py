@@ -16,6 +16,7 @@ import dash_table
 import plotly.express as px
 import pandas as pd
 from dash.dependencies import Input, Output
+import dash_auth
 
 
 def split_product_and_price(data):
@@ -25,10 +26,10 @@ def split_product_and_price(data):
     :return: a pandas dataframe
     """
     extra_sorting_step = data.product_id.value_counts().sort_index(ascending=False).to_frame()
-    sorted = extra_sorting_step.sort_values(by='product_id', ascending=False).head(20)
+    sorted_items = extra_sorting_step.sort_values(by='product_id', ascending=False).head(20)
     names = []
     count = []
-    for index, row in sorted.iterrows():
+    for index, row in sorted_items.iterrows():
         all_items = str(row).split(' ')
 
         for item in all_items:
@@ -38,6 +39,7 @@ def split_product_and_price(data):
                 int(item.strip("\\nName:"))
                 count.append(item[0:3])
             except:
+                # ignore any items which cannot be converted to int
                 pass
     df = pd.DataFrame({'product_id': names})
     df['count'] = count
@@ -46,6 +48,8 @@ def split_product_and_price(data):
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+LOGIN = {'test': 'test'}
+auth = dash_auth.BasicAuth(app, LOGIN)
 
 # change the working directory
 path = "C:\\git_local\\WGU_Capstone_Python\\data"
@@ -76,7 +80,7 @@ app.layout = html.Div(children=[
     html.H1(children='Hello Readers'),
 
     html.Div(children='''
-        Dash: A web application framework for Python.
+        A business intelligence tool.
     '''),
     # add a histogram
     html.Div(dcc.Graph(

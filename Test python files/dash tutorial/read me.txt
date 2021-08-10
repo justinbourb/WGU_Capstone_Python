@@ -1,0 +1,4 @@
+# Dash Tutorial: https://dash.plotly.com/layout
+# Deploying Dash to Python Anywhere: https://towardsdatascience.com/the-easiest-way-to-deploy-your-dash-app-for-free-f92c575bb69e
+# Creating a Dash Login via flask: https://stackoverflow.com/questions/52286507/how-to-merge-flask-login-with-a-dash-application
+# Deplying Dash to Heroku: https://community.plotly.com/t/deploying-your-dash-app-to-heroku-the-magical-guide/46723
