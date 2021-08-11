@@ -36,9 +36,9 @@ if __name__ == "__main__":
     # create the graph
     graph = pydotplus.graph_from_dot_data(data)
     # save the graph as a png file
-    graph.write_png('Images\mydecisiontree.png')
+    graph.write_png('Images\\mydecisiontree.png')
     # read the saved image and plot the graph
-    img = pltimg.imread('Images\mydecisiontree.png')
+    img = pltimg.imread('Images\\mydecisiontree.png')
     imgplot = plt.imshow(img)
     plt.show()
 

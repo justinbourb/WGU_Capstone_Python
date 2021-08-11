@@ -1,0 +1,4 @@
+Printing the clusters:
+source: https://stackoverflow.com/questions/28344660/how-to-identify-cluster-labels-in-kmeans-scikit-learn
+sklearn scatter plots using kmeans analysis:
+source: https://blog.floydhub.com/introduction-to-k-means-clustering-in-python-with-scikit-learn/

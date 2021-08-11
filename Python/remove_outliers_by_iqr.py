@@ -11,7 +11,6 @@ Lessons learned:
     4) Ipython is like python but worse, magic words create obfuscation
 """
 
-
 import os
 import csv
 import pandas as pd
@@ -30,7 +29,7 @@ if __name__ == "__main__":
     print(len(csv_data))
 
     # This data set only has outliers higher than Q3
-    # Find the index of a high outlier
+    # Find the index of all high outliers
     high_outliers = []
     for index, value in enumerate(csv_data['price']):
         if float(value) > (Q3 + 1.5 * IQR):
@@ -46,7 +45,8 @@ if __name__ == "__main__":
     # This is a 7.480692 percent reduction in the number of rows
 
     # write iqr cleaned data to a csv
-    with open('C:\\git_local\\WGU_Capstone_Python\\data\\iqr_cleaned_data.csv', 'w', encoding='UTF8', newline='') as file:
+    with open('C:\\git_local\\WGU_Capstone_Python\\data\\iqr_cleaned_data.csv', 'w', encoding='UTF8',
+              newline='') as file:
         writer = csv.writer(file)
         writer.writeheader()
         writer.writerows(csv_data)
