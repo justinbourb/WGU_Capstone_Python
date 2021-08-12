@@ -10,6 +10,7 @@ Purpose: This file will create a dash app server.  This server displays the busi
 # visit http://127.0.0.1:8050/ in your web browser.
 import base64
 import os
+import pathlib
 
 import dash
 import dash_core_components as dcc
@@ -55,9 +56,11 @@ LOGIN = {'test': 'test'}
 # use dash basic authorization, advanced dash login requires a paid subscription or use of flask.
 auth = dash_auth.BasicAuth(app, LOGIN)
 
-# change the working directory
-path = "..\\data"
-os.chdir(path)
+# get the working directory
+current_dir = os.getcwd()
+# only change the working directory if we are in the dash app folder.  /data is the desired directory.
+if current_dir.split('\\')[-1] == 'dash app':
+    os.chdir('../../data')
 # read the data
 cleaned_data = pd.read_csv('cleaned_data_with_clusters.csv')
 # an overly complicated method of sorting data follows below:

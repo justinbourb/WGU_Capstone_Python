@@ -16,17 +16,17 @@ import csv
 import pandas as pd
 
 if __name__ == "__main__":
-    path = "C:\\git_local\\WGU_Capstone_Python\\data"
+    path = "..\\data"
     os.chdir(path)
     # read the data
     csv_data = pd.read_csv('working_data.csv')
-    print('Original length of working data ' + str(len(csv_data)))
+    #print('Original length of working data ' + str(len(csv_data)))
     # calculate Q1, Q3 and IQR
     Q1 = csv_data['price'].quantile(0.25)
     Q3 = csv_data['price'].quantile(0.75)
     IQR = Q3 - Q1
 
-    print(len(csv_data))
+
 
     # This data set only has outliers higher than Q3
     # Find the index of all high outliers
@@ -38,7 +38,7 @@ if __name__ == "__main__":
     # remove the row for all high outliers from the dataset
     for i in high_outliers:
         csv_data.drop([i], inplace=True)
-    print(len(csv_data))
+
 
     # 112650 is the number of rows before outlier removal
     # 104223 is the number of rows after IQR outlier removal
