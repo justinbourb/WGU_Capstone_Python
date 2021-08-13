@@ -84,10 +84,10 @@ fig_bar_top_items['layout']['yaxis']['autorange'] = "reversed"
 
 # create the layout for the app using pseudo html
 app.layout = html.Div(children=[
-    html.H1(children='Hello Readers'),
+    html.H1(children='DadsBestSoftware Inc.'),
 
     html.Div(children='''
-        A business intelligence tool.
+        Business intelligence dashboard.
     '''),
     # add a histogram
     html.Div(dcc.Graph(
@@ -137,4 +137,4 @@ def update_table(page_current, page_size):
 
 # run the server
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
