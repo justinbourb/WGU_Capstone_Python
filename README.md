@@ -1,7 +1,7 @@
 # WGU_Capstone_Python
 
 My project is to analyze past online purchases to create a business intelligence tool.  My analysis follows the CRISP-DM methodology and includes data cleaning/preprocesing,
-clustering, a decision tree to assign future customers to clusters and association rules mining to determine if any products are likely to be bought together.
+clustering and a decision tree to assign future customers to clusters.
 
 The working_dataset.csv is based upon the Brazilian E-Commerce Public Dataset.  Working_data.csv was created using JOIN in MySQL to combine
 the needed data from multiple tables in the Brazlian dataset.  
